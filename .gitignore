@@ -7,4 +7,4 @@ temp/
 /best_parameters.pkl
 
 __pycache__/
-.ipynb_checkpoints/best_parameters.pkl
+.ipynb_checkpoints/
