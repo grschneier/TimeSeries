@@ -1,0 +1,10 @@
+,rmse
+prophet,573277.86
+holt_winter,640244.45
+holt_linear,938473.78
+moving_average,944047.61
+arima,949437.9
+SES,974246.68
+simple_average,1122176.88
+sarima,1290570.66
+naive,1325608.56
