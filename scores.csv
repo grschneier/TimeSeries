@@ -1,8 +1,12 @@
 ,rmse_per_million
+XGboost_tt,0.47888225578201205
 holt_winter,0.54306688
 prophet,0.57166585
 SARIMAX,0.59099874
+RandomForest_tt,0.6112166331292902
 arima,0.7373484
+RandomForest_bu,0.8636077926057387
+XGBoost_bu,0.8879243226583203
 holt_linear,0.92976832
 SES,0.94277767
 moving_average,0.94404761
