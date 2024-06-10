@@ -9,13 +9,12 @@ This is a project to analyze different models to apply to forecasting. In order 
 
 Final Scores:
 
-| Rank|   Model         |    RMSE   |
-|     |                 |per million|
+| Rank| Model           |RMSE per million|
 | :---| :-------:       | ---------:|
 |  1  | XGboost_tt      |	0.48    |
-2	holt_winter	0.54306688
-3	LSTM	0.5577883344181894
-4	prophet	0.57166585
+|  2  |	holt_winter	    |0.54       |
+|  3  |LSTM	            |0.56       |
+|  4  |prophet          |0.57       |
 5	SARIMAX	0.59099874
 6	RandomForest_tt	0.6112166331292902
 7	LSTM_stacked	0.6726724218947377
