@@ -9,7 +9,7 @@ This is a project to analyze different models to apply to forecasting. In order 
 
 Final Scores:
 
-| Rank| Model           |RMSE per million|
+| Rank| Model           |RMSE<br>(per million)|
 | :---| :-------:       | ---------:|
 |  1  | XGboost_tt      |	0.48    |
 |  2  |	holt_winter	    |0.54       |
