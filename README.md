@@ -27,5 +27,13 @@ Final Scores:
 |14	  |simple_average	|1.12|
 |15	  |naive	        |1.32|
 
-Once done with this part, I also went over a comparison of SARIMA and prophet. It is done in the folder. More explanations to come.
+Once done with this part, I also went over a comparison of SARIMA and prophet. It is done in the folder.
+
+We did an analysis over a time series using SARIMA and FBProphet. In all these cases, using the Normalized Root Mean Squared Error as a metric, Prophet outscores SARIMA. We might try to dig a little deeper and add some other thoughts and ideas. We are taking about the conclusions. Before we do so, I want to prevent us to fall into Recency Bias (thinking that our last case is the one that matters), Confirmation bias (this is what I thought therefore this is it) or, in other words, extend the conclusions of this only case to all other situations and time series we can find in the future.
+
+# **Conclusions**:
+
+1. SARIMA is way slower. It takes more time to train SARIMA and then run the winner. FBrophet has no parameters to tune
+2. Prophet scores lower (and better) nrmse most of the times. Sarimax is only better in weekly and hourly. It feels like sarimax does not gain from adding more data points to the dataset. After certain amount of rows, it does not get better rather it worsens
+3. SARIMA seems to pick up better the small nuances of the time series like we can see on the weekly analysis. Despite this, Prophet scored better.
 
