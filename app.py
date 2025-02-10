@@ -100,9 +100,34 @@ st.dataframe(df.head())
 st.subheader("🔮 Actual vs. Predicted Stock Direction")
 
 fig = go.Figure()
-fig.add_trace(go.Scatter(x=df.index[-len(y_test):], y=y_test, mode='lines+markers', name='Actual', marker=dict(color="blue")))
-fig.add_trace(go.Scatter(x=df.index[-len(y_test):], y=y_pred, mode='lines+markers', name='Predicted', marker=dict(color="red")))
-fig.update_layout(title="Actual vs. Predicted Stock Direction (Up/Down)", xaxis_title="Date", yaxis_title="Direction (0=Down, 1=Up)")
+
+# Step plot for actual values
+fig.add_trace(go.Scatter(
+    x=df.index[-len(y_test):], 
+    y=y_test, 
+    mode='lines', 
+    name='Actual',
+    line=dict(shape='hv', color='blue')  # "hv" for horizontal-vertical step plot
+))
+
+# Step plot for predicted values
+fig.add_trace(go.Scatter(
+    x=df.index[-len(y_test):], 
+    y=y_pred, 
+    mode='lines', 
+    name='Predicted',
+    line=dict(shape='hv', color='red', dash='dot')  # Dashed line for prediction
+))
+
+fig.update_layout(
+    title="Actual vs. Predicted Stock Direction",
+    xaxis_title="Date",
+    yaxis_title="Direction (0=Down, 1=Up)",
+    yaxis=dict(tickvals=[0, 1], ticktext=["Down", "Up"]),
+    height=500,
+    width=900
+)
+
 st.plotly_chart(fig)
 
 # ------------------------------
