@@ -163,4 +163,4 @@ st.markdown("""
 - The **error distribution** gives insight into model accuracy and potential biases.
 """)
 
-st.markdown("🚀 Built with Streamlit & Plotly | 🔗 GitHub: [your-repo-link]")
+st.markdown("🚀 Built with Streamlit & Plotly
