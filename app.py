@@ -99,35 +99,14 @@ st.dataframe(df.head())
 # ------------------------------
 st.subheader("🔮 Actual vs. Predicted Stock Direction")
 
+df_resampled = df.resample('W').mean()
+y_test_resampled = df_resampled['target']
+y_pred_resampled = pd.Series(y_pred, index=df.index[-len(y_test):]).resample('W').mean()
+
 fig = go.Figure()
-
-# Step plot for actual values
-fig.add_trace(go.Scatter(
-    x=df.index[-len(y_test):], 
-    y=y_test, 
-    mode='lines', 
-    name='Actual',
-    line=dict(shape='hv', color='blue')  # "hv" for horizontal-vertical step plot
-))
-
-# Step plot for predicted values
-fig.add_trace(go.Scatter(
-    x=df.index[-len(y_test):], 
-    y=y_pred, 
-    mode='lines', 
-    name='Predicted',
-    line=dict(shape='hv', color='red', dash='dot')  # Dashed line for prediction
-))
-
-fig.update_layout(
-    title="Actual vs. Predicted Stock Direction",
-    xaxis_title="Date",
-    yaxis_title="Direction (0=Down, 1=Up)",
-    yaxis=dict(tickvals=[0, 1], ticktext=["Down", "Up"]),
-    height=500,
-    width=900
-)
-
+fig.add_trace(go.Scatter(x=y_test_resampled.index, y=y_test_resampled, mode='lines+markers', name='Actual', marker=dict(color="blue")))
+fig.add_trace(go.Scatter(x=y_pred_resampled.index, y=y_pred_resampled, mode='lines+markers', name='Predicted', marker=dict(color="red")))
+fig.update_layout(title="Actual vs. Predicted (Weekly Aggregation)", xaxis_title="Date", yaxis_title="Direction")
 st.plotly_chart(fig)
 
 # ------------------------------
