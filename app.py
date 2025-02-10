@@ -99,14 +99,14 @@ st.dataframe(df.head())
 # ------------------------------
 st.subheader("🔮 Actual vs. Predicted Stock Direction")
 
-df_resampled = df.resample('W').mean()
+df_resampled = df.resample('M').mean()
 y_test_resampled = df_resampled['target']
-y_pred_resampled = pd.Series(y_pred, index=df.index[-len(y_test):]).resample('W').mean()
+y_pred_resampled = pd.Series(y_pred, index=df.index[-len(y_test):]).resample('M').mean()
 
 fig = go.Figure()
 fig.add_trace(go.Scatter(x=y_test_resampled.index, y=y_test_resampled, mode='lines+markers', name='Actual', marker=dict(color="blue")))
 fig.add_trace(go.Scatter(x=y_pred_resampled.index, y=y_pred_resampled, mode='lines+markers', name='Predicted', marker=dict(color="red")))
-fig.update_layout(title="Actual vs. Predicted (Weekly Aggregation)", xaxis_title="Date", yaxis_title="Direction")
+fig.update_layout(title="Actual vs. Predicted (Monthly Aggregation)", xaxis_title="Date", yaxis_title="Direction")
 st.plotly_chart(fig)
 
 # ------------------------------
